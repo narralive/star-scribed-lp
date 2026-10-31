@@ -174,15 +174,35 @@ a:focus-visible {
   padding-block: 66px 80px;
 }
 
-.hero::before {
+.hero::before,
+.map::before {
   content: '';
   position: absolute;
-  inset: 0;
+  top: 50%;
+  left: 50%;
+  width: 180vmax;
+  height: 180vmax;
   z-index: -1;
-  background: url('assets/star-sky-night.jpg') center / auto 240% no-repeat;
-  opacity: .09;
-  mix-blend-mode: multiply;
+  background: url('assets/star-sky-night.jpg') center / 180% auto no-repeat;
+  transform: translate(-50%, -50%);
+  transform-origin: center;
+  animation: sky-turn 300s linear infinite;
   pointer-events: none;
+}
+
+.hero::before {
+  opacity: .2;
+  mix-blend-mode: multiply;
+}
+
+@keyframes sky-turn {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }
 
 .hero-spark {
@@ -476,14 +496,8 @@ a:focus-visible {
 }
 
 .map::before {
-  content: '';
-  position: absolute;
-  inset: -70%;
-  z-index: -1;
-  background: url('assets/star-sky-night.jpg') center / cover no-repeat;
   opacity: .1;
   mix-blend-mode: screen;
-  pointer-events: none;
 }
 
 .map .chapter-heading .kicker {
@@ -769,5 +783,10 @@ footer span a {
   .sparkles span {
     animation: none;
     opacity: .65;
+  }
+
+  .hero::before,
+  .map::before {
+    animation: none;
   }
 }
