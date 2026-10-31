@@ -1,0 +1,16 @@
+# Local operating system files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Temporary local tools and previews
+__pycache__/
+.venv/
+.pdf-reader/
+.tmp*
+.edge-*/
+.chrome-*/
+.reflection-preview*/
+.eye-preview*/
+.public-preview.png
+.review-*.png

@@ -1,0 +1,773 @@
+:root {
+  --ink: #0d2452;
+  --sub: #36507b;
+  --paper: #f7f7fc;
+  --line: #a7b4db;
+  --deep: #07183c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 1rem/1.6 'DM Sans', Arial, sans-serif;
+}
+
+h1,
+h2,
+h3,
+p,
+figure {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Outfit', Arial, sans-serif;
+  line-height: 1.1;
+  letter-spacing: -.035em;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.wrap {
+  width: min(1080px, calc(100% - 40px));
+  margin-inline: auto;
+}
+
+.skip {
+  position: absolute;
+  left: -10000px;
+}
+
+.skip:focus {
+  left: 12px;
+  top: 12px;
+  z-index: 20;
+  background: white;
+  padding: 10px 14px;
+}
+
+a:focus-visible {
+  outline: 3px solid #d05ca7;
+  outline-offset: 4px;
+}
+
+.site-header {
+  border-bottom: 2px solid var(--ink);
+  background: var(--deep);
+  color: #f3f1e8;
+}
+
+.site-header nav {
+  min-height: 78px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding-block: 10px;
+  font: 600 1.5rem/1 'Outfit', Arial, sans-serif;
+  letter-spacing: -.04em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.logo-character {
+  position: relative;
+  display: block;
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  transform: rotate(9deg);
+}
+
+.logo-starfish {
+  transform: rotate(-9deg);
+}
+
+.character-shape {
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: multiply;
+}
+
+.site-header .character-shape {
+  mix-blend-mode: normal;
+}
+
+.logo-eye {
+  position: absolute;
+  top: 36%;
+  width: 23%;
+  height: auto;
+}
+
+.eye-left {
+  left: 24%;
+}
+
+.eye-right {
+  right: 24%;
+}
+
+.logo-starfish .logo-eye {
+  top: 43%;
+}
+
+.contact-shortcut {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 9px 13px;
+  border: 1px solid #e9d788;
+  border-radius: 999px;
+  box-shadow: 3px 3px 0 #8ba0d0;
+  background: transparent;
+  color: #f8e58b;
+  font-size: .8rem;
+  font-weight: 800;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.contact-shortcut:hover {
+  background: #f8e58b;
+  color: var(--deep);
+}
+
+.kicker {
+  font-size: .69rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  line-height: 1.4;
+}
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #c4cdf0;
+  padding-block: 66px 80px;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: url('assets/star-sky-night.jpg') center / auto 240% no-repeat;
+  opacity: .09;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.hero-spark {
+  position: absolute;
+  top: 19px;
+  right: 6%;
+  width: 35px;
+  height: 35px;
+  mix-blend-mode: multiply;
+  transform: rotate(16deg);
+  pointer-events: none;
+}
+
+.sparkles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.sparkles span {
+  position: absolute;
+  color: #ffedaa;
+  font-size: 21px;
+  line-height: 1;
+  opacity: .7;
+  animation: twinkle 5s ease-in-out infinite;
+}
+
+.sparkles span:nth-child(1) {
+  right: 18%;
+  top: 9%;
+}
+
+.sparkles span:nth-child(2) {
+  right: 4%;
+  top: 49%;
+  font-size: 15px;
+  animation-delay: -1.8s;
+}
+
+.sparkles span:nth-child(3) {
+  right: 21%;
+  bottom: 10%;
+  font-size: 12px;
+  animation-delay: -3.2s;
+}
+
+@keyframes twinkle {
+
+  0%,
+  100% {
+    opacity: .3;
+    filter: drop-shadow(0 0 0 transparent);
+  }
+
+  50% {
+    opacity: .95;
+    filter: drop-shadow(0 0 5px #ffe493);
+  }
+}
+
+.constellation-trail {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 38px;
+  pointer-events: none;
+}
+
+.constellation-trail path {
+  fill: none;
+  stroke: #f7e58a;
+  stroke-width: 2.5;
+}
+
+.constellation-trail circle {
+  fill: #f7e58a;
+}
+
+.hero h1 {
+  font-size: clamp(3rem, 10.5vw, 5.7rem);
+  max-width: 850px;
+  margin: 16px 0 23px;
+}
+
+.hero h1 span {
+  color: #3e5d98;
+}
+
+.hero-intro {
+  max-width: 650px;
+  font-size: 1.03rem;
+  color: #263e6b;
+}
+
+.primary-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  background: #f8e58b;
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+  border-radius: 24px;
+  box-shadow: 3px 3px 0 var(--ink);
+  font-size: .84rem;
+  font-weight: 800;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin-top: 27px;
+}
+
+.primary-link:hover,
+.contact-links .contact-main:hover {
+  transform: translateY(-2px);
+}
+
+.progress-note {
+  max-width: 490px;
+  margin-top: 17px;
+  font-size: .83rem;
+  color: #304974;
+}
+
+.chapter {
+  padding-block: 54px;
+}
+
+.chapter-heading {
+  margin-bottom: 25px;
+}
+
+.chapter-heading .kicker {
+  color: #5870a5;
+}
+
+.chapter-heading h2 {
+  font-size: clamp(2.15rem, 8vw, 3.35rem);
+  margin: 12px 0 16px;
+  max-width: 650px;
+}
+
+.chapter-heading>p:not(.kicker) {
+  color: var(--sub);
+  font-size: .95rem;
+}
+
+.chapter-body {
+  min-width: 0;
+}
+
+.movement {
+  background: #f1f2fb;
+}
+
+.movement-ideas {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 10px 0;
+}
+
+.movement-ideas li {
+  text-align: center;
+}
+
+.movement-ideas img {
+  width: min(96px, 100%);
+  height: auto;
+  margin: 0 auto 14px;
+}
+
+.movement-ideas h3 {
+  font-size: 1.12rem;
+  line-height: 1.2;
+  margin-bottom: 7px;
+}
+
+.movement-ideas p {
+  color: var(--sub);
+  font-size: .8rem;
+  line-height: 1.45;
+}
+
+.game-image img {
+  width: 100%;
+  aspect-ratio: 1.7;
+  object-fit: cover;
+  background: var(--deep);
+  border: 3px solid #8ba0d0;
+  border-radius: 22px 7px 22px 7px;
+  transform: rotate(-1deg);
+  box-shadow: 5px 6px 0 #d7e0f5;
+}
+
+.game-image figcaption {
+  padding-top: 14px;
+  font-size: .7rem;
+  color: #536893;
+}
+
+.npc {
+  background: #fff;
+}
+
+.npc-list article {
+  position: relative;
+  border-top: 1px solid var(--line);
+  padding: 15px 0 15px 48px;
+}
+
+.npc-icon {
+  position: absolute;
+  top: 14px;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.npc-list article:last-child {
+  padding-bottom: 0;
+}
+
+.npc-list h3 {
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+}
+
+.npc-list p {
+  font-size: .91rem;
+  color: var(--sub);
+}
+
+.system {
+  background: #d1d9f2;
+}
+
+.allocation-copy .chapter-heading {
+  margin-bottom: 24px;
+}
+
+.allocation-concept {
+  margin-top: 28px;
+}
+
+.system .allocation-concept img {
+  aspect-ratio: auto;
+  height: auto;
+}
+
+.allocation-concept>a {
+  display: block;
+  border-radius: 22px 7px 22px 7px;
+}
+
+.system .chapter-body>p {
+  font-size: .95rem;
+  color: #263c68;
+}
+
+.system .chapter-body>p+p {
+  margin-top: 17px;
+}
+
+.system-question {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  padding-top: 19px;
+  border-top: 1px solid #99abd2;
+  font-weight: 700;
+}
+
+.system-question img {
+  width: 26px;
+  height: 26px;
+  flex: none;
+  mix-blend-mode: multiply;
+}
+
+.map {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--deep);
+  color: #f2f4ff;
+}
+
+.map::before {
+  content: '';
+  position: absolute;
+  inset: -70%;
+  z-index: -1;
+  background: url('assets/star-sky-night.jpg') center / cover no-repeat;
+  opacity: .1;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.map .chapter-heading .kicker {
+  color: #dfcc79;
+}
+
+.map .chapter-heading>p:not(.kicker) {
+  color: #c8d4ef;
+}
+
+.map .map-thought {
+  margin-top: 17px;
+}
+
+.map .game-image figcaption {
+  color: #aebee1;
+}
+
+.map .game-image img {
+  transform: rotate(1deg);
+  box-shadow: 5px 6px 0 #28436c;
+  border-color: #6784b5;
+}
+
+.map .map-concept img {
+  aspect-ratio: auto;
+  height: auto;
+}
+
+.map-concept>a {
+  display: block;
+  border-radius: 22px 7px 22px 7px;
+}
+
+.reflection {
+  background: #e8edf9;
+}
+
+.reflection-moments article {
+  border-top: 1px solid var(--line);
+  padding: 17px 0;
+}
+
+.reflection-moments article:last-child {
+  padding-bottom: 0;
+}
+
+.reflection-moments h3 {
+  font-size: 1.35rem;
+  margin-bottom: 7px;
+}
+
+.reflection-moments p {
+  color: var(--sub);
+  font-size: .93rem;
+}
+
+.story-example-note {
+  margin-top: 30px;
+  color: #536893;
+  font-size: .74rem;
+}
+
+.story-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  max-width: 900px;
+  margin: 16px auto 10px;
+  padding: 8px 4px;
+  align-items: center;
+}
+
+.story-gallery figure {
+  min-width: 0;
+}
+
+.story-gallery figure:first-child {
+  transform: rotate(-3deg);
+}
+
+.story-gallery figure:last-child {
+  transform: translateY(10px) rotate(3deg);
+}
+
+.story-gallery img {
+  width: 100%;
+  height: auto;
+  border: 2px solid #a6b6dc;
+  border-radius: 12px;
+  box-shadow: 4px 5px 0 #cbd6f0;
+}
+
+.next {
+  padding-block: 54px;
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 14px;
+}
+
+.next>img {
+  width: 34px;
+  height: 34px;
+  mix-blend-mode: multiply;
+}
+
+.next h2 {
+  font-size: 2rem;
+  margin-bottom: 11px;
+}
+
+.next p {
+  max-width: 680px;
+  font-size: .92rem;
+  color: var(--sub);
+}
+
+.next a {
+  display: inline-block;
+  margin-top: 17px;
+  font-size: .84rem;
+  font-weight: 800;
+  text-underline-offset: 4px;
+}
+
+.contact {
+  padding-block: 55px;
+  background: #b5c3e9;
+  border-top: 1px solid #95a7d0;
+}
+
+.contact h2 {
+  font-size: clamp(2.4rem, 9vw, 4rem);
+  margin: 10px 0 14px;
+}
+
+.contact p:not(.kicker) {
+  max-width: 540px;
+  color: #263d6b;
+  font-size: .95rem;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 23px;
+}
+
+.contact-links a {
+  font-size: .85rem;
+  font-weight: 800;
+  text-underline-offset: 4px;
+}
+
+.contact-links .contact-main {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  background: #f8e58b;
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+  border-radius: 24px;
+  box-shadow: 3px 3px 0 var(--ink);
+  text-decoration: none;
+  padding: 10px 20px;
+}
+
+footer {
+  background: var(--deep);
+  color: #c6d3ef;
+  padding-block: 21px;
+}
+
+footer .wrap {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+footer span,
+footer a {
+  font-size: .72rem;
+}
+
+footer a {
+  text-decoration: none;
+}
+
+footer span a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media(min-width:760px) {
+  .wrap {
+    width: min(1080px, calc(100% - 70px));
+  }
+
+  .site-header nav {
+    min-height: 86px;
+  }
+
+  .hero {
+    padding-block: 94px 80px;
+  }
+
+  .chapter {
+    padding-block: 74px;
+  }
+
+  .chapter-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7%;
+    align-items: center;
+  }
+
+  .chapter-heading {
+    margin: 0;
+  }
+
+  .allocation-concept {
+    margin-top: 0;
+  }
+
+  .game-image img {
+    aspect-ratio: 1.65;
+  }
+
+  .next {
+    grid-template-columns: 52px 1fr;
+    gap: 19px;
+    padding-block: 64px;
+  }
+
+  .next>img {
+    width: 46px;
+    height: 46px;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 40px;
+    align-items: end;
+  }
+
+  .contact-links {
+    margin: 0 0 5px;
+  }
+}
+
+@media(max-width:370px) {
+  .hero h1 {
+    font-size: 2.85rem;
+  }
+
+  .wordmark {
+    font-size: 1.1rem;
+    gap: 5px;
+  }
+
+  .logo-character {
+    width: 26px;
+    height: 26px;
+    flex-basis: 26px;
+  }
+
+  .contact-shortcut {
+    font-size: .74rem;
+    padding-inline: 10px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .sparkles span {
+    animation: none;
+    opacity: .65;
+  }
+}
