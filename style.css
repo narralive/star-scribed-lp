@@ -12,11 +12,17 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
   margin: 0;
-  min-width: 320px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: hidden;
+  overflow-wrap: break-word;
   background: var(--paper);
   color: var(--ink);
   font: 400 1rem/1.6 'DM Sans', Arial, sans-serif;
@@ -54,10 +60,16 @@ img {
 
 .skip {
   position: absolute;
-  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
 }
 
 .skip:focus {
+  width: auto;
+  height: auto;
+  clip-path: none;
   left: 12px;
   top: 12px;
   z-index: 20;
@@ -79,9 +91,11 @@ a:focus-visible {
 .site-header nav {
   min-height: 78px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   gap: 12px;
+  padding-block: 10px;
 }
 
 .wordmark {
@@ -170,6 +184,7 @@ a:focus-visible {
   position: relative;
   isolation: isolate;
   overflow: hidden;
+  contain: paint;
   background: #c4cdf0;
   padding-block: 66px 80px;
 }
@@ -355,6 +370,10 @@ a:focus-visible {
   min-width: 0;
 }
 
+.chapter-grid>* {
+  min-width: 0;
+}
+
 .movement {
   background: #f1f2fb;
 }
@@ -491,6 +510,7 @@ a:focus-visible {
   position: relative;
   isolation: isolate;
   overflow: hidden;
+  contain: paint;
   background: var(--deep);
   color: #f2f4ff;
 }
@@ -594,7 +614,7 @@ a:focus-visible {
 .next {
   padding-block: 54px;
   display: grid;
-  grid-template-columns: 36px 1fr;
+  grid-template-columns: 36px minmax(0, 1fr);
   gap: 14px;
 }
 
@@ -713,7 +733,7 @@ footer span a {
 
   .chapter-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 7%;
     align-items: center;
   }
@@ -731,7 +751,7 @@ footer span a {
   }
 
   .next {
-    grid-template-columns: 52px 1fr;
+    grid-template-columns: 52px minmax(0, 1fr);
     gap: 19px;
     padding-block: 64px;
   }
@@ -743,7 +763,7 @@ footer span a {
 
   .contact-grid {
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: minmax(0, 1fr) auto;
     gap: 40px;
     align-items: end;
   }
